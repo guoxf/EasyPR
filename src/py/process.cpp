@@ -51,11 +51,12 @@ Process::Process(string path,bool showResult,bool debug,int maxPlate){
 	pr->setDebug(debug);
 	pr->setResultShow(showResult);
 	pr->setMaxPlates(maxPlate);
-	pr->setDetectType(PR_DETECT_CMSER);//PR_DETECT_SOBEL | 
-	//pr->setDetectType(PR_DETECT_COLOR | PR_DETECT_CMSER);
+	pr->setDetectType(PR_DETECT_COLOR | PR_DETECT_SOBEL | PR_DETECT_CMSER);//
+	//pr->setDetectType( PR_DETECT_CMSER);
 
 	pr->LoadSVM((path + "/svm_hist.xml"));
 	pr->LoadANN(path + "/ann.xml");
 	pr->LoadChineseANN(path + "/ann_chinese.xml");
-	CharsIdentify::instance()->LoadChineseMapping(path + "/province_mapping");
+	pr->LoadGrayChANN(path +"/annCh.xml");
+    pr->LoadChineseMapping(path +"/province_mapping");
 }
