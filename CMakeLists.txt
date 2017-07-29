@@ -5,8 +5,11 @@ project(easypr)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+SET(CMAKE_C_FLAGS  "-fPIC")  
+SET(CMAKE_CXX_FLAGS "-fPIC") 
+
 if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
-    set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "/usr/local/opt/opencv-3.2.0")
+    set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "/usr/local/opt/opencv3")
 endif ()
 
 # OpenVC3 required
@@ -19,6 +22,9 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 # sub directories
 add_subdirectory(thirdparty)
+
+# export
+AUX_SOURCE_DIRECTORY(src/py OBJ_PY)
 
 # sources to be compiled
 set(SOURCE_FILES
@@ -42,6 +48,9 @@ set(SOURCE_FILES
         src/util/util.cpp
         src/util/program_options.cpp
         src/util/kv.cpp
+
+        src/py/py.cpp
+        src/py/process.cpp
         )
 
 # pack objects to static library
@@ -62,3 +71,6 @@ add_executable(${EXECUTABLE_NAME} test/main.cpp)
 target_link_libraries(${EXECUTABLE_NAME} easypr thirdparty ${OpenCV_LIBS})
 # MESSAGE(${CMAKE_BINARY_DIR}/../)
 SET_TARGET_PROPERTIES(${EXECUTABLE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY  "${CMAKE_BINARY_DIR}/../")
+
+add_library(easyprexport SHARED ${OBJ_PY})
+target_link_libraries(easyprexport easypr thirdparty ${OpenCV_LIBS})

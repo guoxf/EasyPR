@@ -49,7 +49,6 @@ private:
 
   // gray classifer, only for chinese
   cv::Ptr<cv::ml::ANN_MLP> annGray_;
-
   // used for chinese mapping
   std::shared_ptr<Kv> kv_;
 };
