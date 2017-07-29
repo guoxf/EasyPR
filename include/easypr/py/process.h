@@ -16,5 +16,6 @@ public:
 	Process();
 	string process(char*, int);
 	string process(Mat &);
+	string process(string imagePath);
 };
 #endif

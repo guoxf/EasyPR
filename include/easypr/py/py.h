@@ -23,6 +23,7 @@ extern "C" {
 	#include <stdbool.h>
 	EXPORT long init(char * modelpath,bool showResult,bool debug,int maxPlate);
 	EXPORT char * plateRecognize(long ptr, char *img, int len);
+	EXPORT char * plateRecognizeByImagePath(long ptr, char *imgPath);
 	EXPORT void deleteptr(long ptr);
 
 #ifdef __cplusplus

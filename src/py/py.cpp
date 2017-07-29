@@ -18,6 +18,14 @@ EXPORT char * plateRecognize(long ptr, char *img, int len){
 	return buf;
 }
 
+EXPORT char *plateRecognizeByImagePath(long ptr,char *imagePath){
+	Process *p = (Process *)ptr;
+	string str = p->process(imagePath);
+	char *buf = new char[str.length()+1];
+	strcpy(buf, str.c_str());
+	return buf;
+}
+
 EXPORT void deleteptr(long ptr){
 	Process *p = (Process *)ptr;
 	delete p;

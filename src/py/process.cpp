@@ -29,6 +29,13 @@ string Process::process(char* imagebuffer, int size){
 	return this->process(src);
 }
 
+string Process::process(string imagePath){
+	 Mat src = imread(imagePath);
+	if (!src.data)
+		return "";
+	return this->process(src);
+}
+
 Process::Process(){
 	pr = new CPlateRecognize();
 	pr->setLifemode(true);
@@ -44,7 +51,7 @@ Process::Process(string path,bool showResult,bool debug,int maxPlate){
 	pr->setDebug(debug);
 	pr->setResultShow(showResult);
 	pr->setMaxPlates(maxPlate);
-	pr->setDetectType(PR_DETECT_SOBEL | PR_DETECT_CMSER);
+	pr->setDetectType(PR_DETECT_CMSER);//PR_DETECT_SOBEL | 
 	//pr->setDetectType(PR_DETECT_COLOR | PR_DETECT_CMSER);
 
 	pr->LoadSVM((path + "/svm_hist.xml"));
