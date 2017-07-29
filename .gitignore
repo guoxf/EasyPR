@@ -42,3 +42,5 @@ _ReSharper*/
 *.cache
 *.log
 
+build
+demo*
