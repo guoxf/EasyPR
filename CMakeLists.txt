@@ -24,7 +24,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 add_subdirectory(thirdparty)
 
 # export
-AUX_SOURCE_DIRECTORY(src/py OBJ_PY)
+AUX_SOURCE_DIRECTORY(src/export OBJ_PY)
 
 # sources to be compiled
 set(SOURCE_FILES
@@ -49,8 +49,9 @@ set(SOURCE_FILES
         src/util/program_options.cpp
         src/util/kv.cpp
 
-        src/py/py.cpp
-        src/py/process.cpp
+        src/export/py.cpp
+        src/export/process.cpp
+        src/export/ann_train.cpp
         )
 
 # pack objects to static library
@@ -66,11 +67,11 @@ endif ()
 # set(CMAKE_BUILD_TYPE Release)
 
 # test cases
-add_executable(${EXECUTABLE_NAME} test/main.cpp)
+#add_executable(${EXECUTABLE_NAME} test/main.cpp)
 # link opencv libs
-target_link_libraries(${EXECUTABLE_NAME} easypr thirdparty ${OpenCV_LIBS})
+#target_link_libraries(${EXECUTABLE_NAME} easypr thirdparty ${OpenCV_LIBS})
 # MESSAGE(${CMAKE_BINARY_DIR}/../)
-SET_TARGET_PROPERTIES(${EXECUTABLE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY  "${CMAKE_BINARY_DIR}/../")
+#SET_TARGET_PROPERTIES(${EXECUTABLE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY  "${CMAKE_BINARY_DIR}/../")
 
 add_library(easyprexport SHARED ${OBJ_PY})
 target_link_libraries(easyprexport easypr thirdparty ${OpenCV_LIBS})

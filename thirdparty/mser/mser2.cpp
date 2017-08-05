@@ -264,9 +264,9 @@ namespace cv
           else if (aspect < a_min) {
             var = var + theta_2 * (a_min - aspect);
           }
-          else {
-            var = var;
-          }
+          // else {
+          //   var = var;
+          // }
 
           // end var regulartion 
         }

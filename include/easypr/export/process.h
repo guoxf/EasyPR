@@ -6,16 +6,19 @@ using namespace std;
 #ifndef _Included_Process
 #define _Included_Process
 
-class Process{
+class Process
+{
 	CPlateRecognize *pr;
-public:
-	~Process(){
+
+  public:
+	~Process()
+	{
 		delete pr;
 	}
-	Process(string path,bool showResult,bool debug,int maxPlate);
+	Process(string path, bool showResult, bool debug, int maxPlate, int detectType);
 	Process();
-	string process(char*, int);
-	string process(Mat &);
-	string process(string imagePath);
+	string process(char *, int, int);
+	string process(Mat &, int);
+	string process(string imagePath, int);
 };
 #endif
