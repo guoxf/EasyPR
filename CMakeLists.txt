@@ -53,6 +53,7 @@ set(SOURCE_FILES
         src/export/ann_train.cpp
         src/export/annCh_train.cpp
         src/export/svm_train.cpp
+        src/export/plate_locate.cpp
         )
 
 # pack objects to static library

@@ -24,16 +24,16 @@ extern "C" {
 EXPORT long NewPlateRecognize(char *modelpath, bool showResult, bool debug, int maxPlate, int detectType);
 EXPORT char *PlateRecognize(long ptr, char *img, int len, int index);
 EXPORT char *PlateRecognizeByImagePath(long ptr, char *imgPath, int index);
-EXPORT void PRSetLifeMode(long pr, bool param);
-EXPORT void PRSetDetectType(long pr, bool param);
-EXPORT void PRSetResultShow(long pr, bool param);
-EXPORT void PRSetDetectShow(long pr, bool param);
-EXPORT void PRSetDebug(long pr, bool param);
-EXPORT void PRLoadSVM(long pr, char *path);
-EXPORT void PRLoadANN(long pr, char *path);
-EXPORT void PRLoadChineseANN(long pr, char *path);
-EXPORT void PRLoadGrayChANN(long pr, char *path);
-EXPORT void PRLoadChineseMapping(long pr, char *path);
+EXPORT void PRSetLifeMode(long ptr, bool param);
+EXPORT void PRSetDetectType(long ptr, bool param);
+EXPORT void PRSetResultShow(long ptr, bool param);
+EXPORT void PRSetDetectShow(long ptr, bool param);
+EXPORT void PRSetDebug(long ptr, bool param);
+EXPORT void PRLoadSVM(long ptr, char *path);
+EXPORT void PRLoadANN(long ptr, char *path);
+EXPORT void PRLoadChineseANN(long ptr, char *path);
+EXPORT void PRLoadGrayChANN(long ptr, char *path);
+EXPORT void PRLoadChineseMapping(long ptr, char *path);
 EXPORT void DeletePr(long ptr);
 #ifdef __cplusplus
 }
