@@ -49,9 +49,10 @@ set(SOURCE_FILES
         src/util/program_options.cpp
         src/util/kv.cpp
 
-        src/export/py.cpp
-        src/export/process.cpp
+        src/export/plate_recognize.cpp
         src/export/ann_train.cpp
+        src/export/annCh_train.cpp
+        src/export/svm_train.cpp
         )
 
 # pack objects to static library
